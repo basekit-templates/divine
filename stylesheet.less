@@ -234,6 +234,10 @@ hr.line {
 	}
 }
 
+.feature-btn {
+	display: block;
+}
+
 .header-feature {
 	position: relative;
 	overflow: hidden;
@@ -242,9 +246,23 @@ hr.line {
 		max-width: 120px;
 	}
 }
+.widget.feature h2 {
+	padding-bottom: 0;
+}
+.widget.feature .feature-bgimg .content h3 {
+	display: inline-block;
+	border-top: 1px solid @font-swatch9-color;
+	text-indent: @font-swatch9-letter-spacing;
+	padding-top: 10px;
+}
+
+.widget.feature .feature-bgimg .content {
+	height: 300px;
+	display: inline-block;
+	padding-top: 55px;
+}
 
 #parallax {
-	margin-top: 35px;
 	position: absolute;
 	width: 100%;
 	text-align: center;
@@ -254,9 +272,6 @@ hr.line {
 
 .nav {
 	font-family: 'Oswald', sans-serif;
-	text-transform: uppercase;
-	letter-spacing: .2em;
-	
 	position: relative;
 	text-align: center;
 	padding: 0 20px;
@@ -306,6 +321,9 @@ hr.line {
 			line-height:@font-swatch6-line-height;
 			letter-spacing: @font-swatch6-letter-spacing;
 			font-size: @font-swatch6-font-size;
+			&:hover {
+				color: @font-swatch6-color-hover;
+			}
 		}
 	}
 	li.folder:after {
@@ -345,8 +363,10 @@ hr.line {
 			max-width: 100%;
 		}
 	}
-	#parallax {
-		margin-top: 80px;
+	.widget.feature .feature-bgimg .content {
+		height: 600px;
+		display: table-cell;
+		padding: 0;
 	}
 }
 
@@ -355,6 +375,7 @@ hr.line {
 	border: none;
 	h1 {
 		position: relative;
+		padding-bottom: 0;
 	}
 	h2 {
 		position: relative;
@@ -362,6 +383,11 @@ hr.line {
 	}
 	.menu-subsection-header, .menu-header {
 		text-align: center;
+		padding-bottom: 8px;
+	}
+	.menu-header {
+		border-bottom: 1px solid lighten(@color-swatch7, 5%);
+		margin-bottom: 14px;
 	}
 }
 
@@ -379,12 +405,16 @@ hr.line {
 
 .menu .menu-subsection {
 	padding: 0;
+	margin-bottom: 40px;
 }
 
-.menu-subsection .menu-items,
 .menu-item-promoted,
 .blog-post-metadata {
-	background-color: lighten(@color-swatch2, 50%);
+	border: 1px solid @color-swatch7;
+}
+
+.menu-subsection .menu-items {
+	background: lighten(@color-swatch2, 50%);
 }
 
 .menu .menu-subsection li {
@@ -400,12 +430,14 @@ hr.line {
 }
 
 .inner-item {
-	padding: 20px;
+	padding: 15px 20px;
 }
 
 .menu .menu-section-item-dietary-props .dietary-icon,
 .menu .menu-info .dietary-icon {
-	border-bottom: 1px solid lighten(@color-swatch2, 32%);
+	border: 1px solid lighten(@color-swatch2, 32%);
+	background-color: lighten(@color-swatch2, 55%);
+	padding: 1px 5px;
 }
 
 .menu-item-description {
@@ -569,7 +601,7 @@ input[type="search"]::-webkit-search-decoration {
 	}
 	.btn-next:before {
 		border-left-color: @color-swatch1;
-		left: 11px;
+		left: 13px;
 	}
 	.btn-prev:before {
 		border-right-color: @color-swatch1;
@@ -581,7 +613,6 @@ input[type="search"]::-webkit-search-decoration {
 .widget.responsiveslideshow .slideshow-widget .btn-next,
 .widget.responsiveslideshow .slideshow-widget .btn-play {
 	background-color: fadeout(@color-swatch2, 50%);
-	border-radius: 100%;
 }
 
 .widget.responsiveslideshow {
@@ -720,13 +751,27 @@ input[type="search"]::-webkit-search-decoration {
 // 12. Responsive
 @media @tablet {
 	.header-feature,
-	.home .header-feature {
+	.home .header-feature,
+	.footer-feature {
 		height: 275px;
 		.logo img {
 			max-width: 120px;
 		}
-		#parallax {
-			margin-top: 50px;
+	}
+	.home .widget.feature .feature-bgimg .content,
+	.widget.feature .feature-bgimg .content,
+	.widget.feature .feature-bgimg {
+		height: 275px;
+	}
+	.widget.feature .feature-bgimg .content {
+		h2 {
+			font-size: bkscale(@font-swatch8-font-size, 0.5);
+			line-height: bkscale(@font-swatch8-line-height, 0.5);
+		}
+		h3 {
+			font-size: bkscale(@font-swatch9-font-size, 0.5);
+			line-height: bkscale(@font-swatch9-line-height, 0.5);
+			border-top: none;
 		}
 	}
 	.template-header .template-aside {
@@ -758,9 +803,8 @@ input[type="search"]::-webkit-search-decoration {
 		border-bottom: 1px solid darken(@color-swatch1, 10%);
 	}
 	.template-nav {
-		border-bottom: 1px solid darken(@color-swatch1, 10%);
-		margin: 0 20px;
-		padding: 0;
+		background: @color-swatch7;
+		padding: 0 20px;
 		float: none;
 		width: auto;
 	}
@@ -770,5 +814,8 @@ input[type="search"]::-webkit-search-decoration {
 	.widget .extendednavigation ul li.folder:hover ul {
 		margin: 1px 0 0;
 		border: none;
+	}
+	.widget.responsiveslideshow .description {
+		display: inline-block;
 	}
 }

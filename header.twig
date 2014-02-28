@@ -1,9 +1,6 @@
 <header class="template-header">
 	<div class="header-feature">
-		<div id="parallax" class="template-logo">
-			{{widget('logo', 'logo', {"defaultlogo": asset('img/logo.png')})|raw}}
-			<h1>{{widget('companyname', 'companyname', {"business": "Lorem Ipsum"})|raw}}</h1>
-		</div>
+		{{widget('feature', 'parallax', {"header": "profile", "strapline":"profile", "buttonText":"", 'positionTopPercentage': '50','showBtn': true})|raw}}	
 	</div>
 </header>
 
