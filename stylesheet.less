@@ -17,6 +17,7 @@
 		10. Footer
 		11. Misc
 		12. Responsive
+		13. Print Override 
 	=============================== */
 
 /*	===============================
@@ -850,4 +851,38 @@ input[type="search"]::-webkit-search-decoration {
 	.menu .main, .main {
 		padding: 0 10px;
 	}
+}
+
+/* ===============================
+   13 Print override
+   =============================== */
+.print-mixin {
+    .headerrow,
+    .bk-footer,
+    .bk-header .widget.profile  {
+        display:none;
+    }
+    .companyheader {
+        padding:0px;
+    }
+    .menu-container {
+        display:none;
+    }
+    .menu-info {
+        margin:0px;
+    }
+    .widget.menu .main.wrapper {
+        page-break-before:always;
+    }
+    .widget.menu .menu-item-image-wrap {
+        height:150px;
+    }
+}
+
+@media print {
+    .print-mixin;
+}
+
+.bk-print {
+    .print-mixin;
 }
